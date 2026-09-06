@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eee6d8">
+  <meta name="description" content="Әсемнің қыз ұзату тойына шақырту.">
+  <title>Әсемнің ұзату тойы — Шақырту</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marck+Script&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none"><defs><filter id="floral-key" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  12 0 -12 0 0"/></filter></defs></svg>
+  <section class="intro" id="intro" aria-label="Тойға шақырту">
+    <div class="intro-frame" aria-hidden="true"></div>
+    <header class="intro-heading">
+      <p class="eyebrow">Ықыласпен жолданған</p>
+      <h1>Сізге арнайы <em>шақырту</em></h1>
+      <div class="ornament" aria-hidden="true">✧</div>
+    </header>
+    <div class="envelope-stage">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="invitation-card" aria-hidden="true">
+          <span class="card-label" data-content="eventType">ҚЫЗ ҰЗАТУ ТОЙЫ</span>
+          <span class="card-names" data-content="bride">Әсем</span>
+          <span class="card-date" data-date="compact">13.10.2026</span>
+        </div>
+        <div class="fold fold-left"></div>
+        <div class="fold fold-right"></div>
+        <div class="fold fold-bottom"></div>
+        <div class="envelope-flap"></div>
+        <button class="wax-seal" id="open-seal" type="button" aria-label="Шақыртуды ашу" aria-controls="invitation" aria-expanded="false"><span>Ә</span></button>
+      </div>
+    </div>
+    <footer class="intro-footer">
+      <p class="envelope-dedication">Сізді қуанышымызға шақырамыз</p>
+      <p>Шақыртуды ашу үшін мөрді басыңыз</p>
+      <span class="intro-date"><span data-content="bride">Әсем</span> <b>·</b> <span data-date="compact">13.10.2026</span></span>
+    </footer>
+  </section>
+
+  <main id="invitation" class="invitation" tabindex="-1" inert aria-hidden="true">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-backdrop parallax-layer" data-depth="2" aria-hidden="true"><div class="hero-photo"></div></div>
+      <div class="petal-field" aria-hidden="true"></div>
+      <div class="hero-composition">
+        <div class="floral floral-left parallax-layer" data-depth="5" aria-hidden="true"><div class="floral-entrance"><img class="slow-float" src="assets/floral-spray.png" alt="" width="768" height="1024"></div></div>
+        <div class="plaque-depth parallax-layer" data-depth="3">
+          <div class="plaque-entrance"><div class="plaque float">
+            <div class="plaque-content">
+              <p class="eyebrow hero-kicker">Өмірдің жаңа тарауы</p>
+              <div class="ornament" aria-hidden="true">✧</div>
+              <h2 class="hero-names" id="hero-title"><span class="name-first" data-content="bride">Әсем</span></h2>
+              <p class="hero-event text-mask"><span class="text-reveal" data-content="eventType">ҚЫЗ ҰЗАТУ ТОЙЫ</span></p>
+              <div class="cinema-date">
+                <span class="date-left" data-date="weekdayTitle">Сейсенбі</span><i class="date-line" aria-hidden="true"></i><strong class="date-day" data-date="day">13</strong><i class="date-line" aria-hidden="true"></i><span class="date-right" data-date="monthTitle">Қазан</span>
+                <span class="date-year" data-date="year">2026</span>
+              </div>
+              <p class="hero-time"><span data-date="clock">17:00</span> · <span data-content="city">Бішкек</span></p>
+            </div>
+          </div></div>
+        </div>
+        <div class="floral floral-right parallax-layer" data-depth="8" aria-hidden="true"><div class="floral-entrance"><img class="slow-float" src="assets/floral-spray.png" alt="" width="768" height="1024"></div></div>
+        <div class="floral floral-bottom parallax-layer" data-depth="6" aria-hidden="true"><div class="floral-entrance"><img class="slow-float" src="assets/floral-spray.png" alt="" width="768" height="1024"></div></div>
+      </div>
+      <a class="scroll-link hero-scroll" href="#celebration">Төмен қарай жылжытыңыз <span aria-hidden="true">↓</span></a>
+      <span class="hero-side" aria-hidden="true"><span data-date="day">13</span> <span data-date="monthLower">қазан</span>, <span data-date="year">2026</span> жыл · <span data-content="city">Бішкек</span></span>
+    </section>
+
+    <section class="celebration section-pad" id="celebration">
+      <div class="reveal">
+        <h2 class="guest-title letter-animation" data-letters>Құрметті қонақтар!</h2>
+        <p class="hero-copy">Сіздерді өміріміздегі ең қуанышты<br>сәттердің біріне куә болып,<br>ақ дастарханымыздың қадірлі қонағы<br>болуға шын жүректен шақырамыз.</p>
+        <p class="eyebrow">АТА-АНА МЕН ОТБАСЫ</p>
+        <p class="event-type" data-content="eventType">ҚЫЗ ҰЗАТУ ТОЙЫ</p>
+        <h2 class="names" data-content="bride">Әсем</h2>
+        <div class="ornament" aria-hidden="true">✧</div>
+        <p class="section-copy">Қызымыздың өміріндегі жаңа тарауды<br>сіздермен бірге бастағымыз келеді.</p>
+      </div>
+      <div class="date-panel reveal">
+        <p class="eyebrow">Күнтізбеңізге белгілеңіз</p>
+        <div class="cinema-date"><span class="date-left" data-date="weekdayTitle">Сейсенбі</span><i class="date-line" aria-hidden="true"></i><strong class="date-day" data-date="day">13</strong><i class="date-line" aria-hidden="true"></i><span class="date-right" data-date="monthTitle">Қазан</span><span class="date-year" data-date="year">2026</span></div>
+        <p class="event-time" data-date="clock">17:00</p>
+        <p id="countdown-caption" class="countdown-caption">Кездесуге дейін</p>
+        <div class="countdown" role="timer" aria-label="Тойға дейін қалған уақыт">
+          <div><strong id="days">00</strong><span>Күн</span></div><i>:</i>
+          <div><strong id="hours">00</strong><span>Сағат</span></div><i>:</i>
+          <div><strong id="minutes">00</strong><span>Минут</span></div><i>:</i>
+          <div><strong id="seconds">00</strong><span>Секунд</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="family section-pad">
+      <div class="reveal">
+        <div class="ornament" aria-hidden="true">✧</div>
+        <p class="eyebrow">Ақ тілекпен, той иелері</p>
+        <h2 data-content="hosts">Айтжан мен Күнсұлу</h2>
+        <p class="section-copy">Қуанышымыздың қадірлі қонағы<br>болыңыз!</p>
+      </div>
+      <figure class="photo-frame reveal reveal-clip" data-image-parallax>
+        <img src="assets/invitation-photo.jpg" alt="Ақ раушан гүлдері — қуаныш пен ізгі тілектің белгісі" loading="lazy" width="900" height="1200" id="invitation-photo">
+        <div class="photo-fallback" aria-hidden="true"><span>Ә</span><small>ҚЫЗ ҰЗАТУ ТОЙЫ</small></div>
+        <figcaption>Бірге жазылатын әдемі хикая…</figcaption>
+      </figure>
+    </section>
+
+    <section class="dress-code section-pad" aria-labelledby="dress-code-title">
+      <div class="reveal reveal-blur">
+        <h2 class="eyebrow" id="dress-code-title">ДРЕСС-КОД</h2>
+        <p class="section-copy">Кешіміздің әсем атмосферасын<br>бірге толықтыру үшін<br>салтанатты әрі нәзік реңктердегі<br>киім үлгісін таңдасаңыздар,<br>қуанышты боламыз.</p>
+        <ul class="dress-palette" aria-label="Киімге ұсынылатын реңктер">
+          <li style="--swatch:#f4e9d7;--swatch-delay:0ms"><span class="sr-only">Крем</span></li>
+          <li style="--swatch:#d3b99e;--swatch-delay:120ms"><span class="sr-only">Беж</span></li>
+          <li style="--swatch:#bd8790;--swatch-delay:240ms"><span class="sr-only">Күлгін қызғылт</span></li>
+          <li style="--swatch:#805d50;--swatch-delay:360ms"><span class="sr-only">Қоңыр</span></li>
+          <li style="--swatch:#842b3b;--swatch-delay:480ms"><span class="sr-only">Бордо</span></li>
+        </ul>
+        <p class="dress-note">Талғамыңыз бен түсіністігіңізге рақмет!</p>
+        <div class="ornament" aria-hidden="true">✧</div>
+      </div>
+    </section>
+
+    <section class="wedding-timeline" id="wedding-schedule" aria-labelledby="schedule-title">
+      <div class="timeline-sticky">
+        <header class="timeline-heading">
+          <p class="eyebrow">Әр сәті — естелік</p>
+          <h2 id="schedule-title">Той бағдарламасы</h2>
+        </header>
+        <div class="timeline-scene">
+          <svg class="timeline-route" viewBox="0 0 360 640" aria-hidden="true">
+            <path class="timeline-base" id="timeline-path" d="M180 18 C325 28 325 130 180 165 S35 275 180 302 S325 415 180 442 S65 530 180 558"/>
+            <path class="timeline-progress" id="timeline-progress" d="M180 18 C325 28 325 130 180 165 S35 275 180 302 S325 415 180 442 S65 530 180 558"/>
+            <g class="timeline-stops">
+              <circle data-stop="0.15" r="3.5"/><circle data-stop="0.45" r="3.5"/><circle data-stop="0.75" r="3.5"/><circle data-stop="0.95" r="3.5"/>
+            </g>
+            <g id="timeline-heart" transform="translate(180 18)"><g class="heart-arrival"><g class="heart-breathe"><path d="M0 15 C-5 10 -18 2 -18 -7 C-18 -18 -5 -21 0 -11 C5 -21 18 -18 18 -7 C18 2 5 10 0 15Z"/></g></g></g>
+          </svg>
+          <ol class="timeline-events">
+            <li class="timeline-event event-left" data-progress="0.15" style="--event-y:16%">
+              <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M11 7L27 11L22 29Q19 37 12 34Q5 32 7 24ZM15 35L10 52M3 50L18 54M37 11L53 7L57 24Q59 32 52 34Q45 37 42 29ZM49 35L54 52M46 54L61 50M10 20L24 24M40 24L54 20M30 4L32 10M36 3L35 8"/><path pathLength="1" d="M11 7L27 11L22 29Q19 37 12 34Q5 32 7 24ZM15 35L10 52M3 50L18 54M37 11L53 7L57 24Q59 32 52 34Q45 37 42 29ZM49 35L54 52M46 54L61 50M10 20L24 24M40 24L54 20M30 4L32 10M36 3L35 8"/></svg>
+              <time datetime="17:00" class="schedule-time">17:00</time>
+              <h3 class="schedule-title"><span>ҚОНАҚТАРДЫҢ<br>ЖИНАЛУЫ</span></h3>
+              <span class="schedule-accent" aria-hidden="true">✧</span>
+            </li>
+            <li class="timeline-event event-right" data-progress="0.45" style="--event-y:44%">
+              <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M36 37A16 16 0 1 1 35 28M28 39A16 16 0 1 0 29 28M34 17L29 10L34 4L40 4L45 10L40 17ZM29 10H45M34 4L34 10L37 17L40 10L40 4"/><path pathLength="1" d="M36 37A16 16 0 1 1 35 28M28 39A16 16 0 1 0 29 28M34 17L29 10L34 4L40 4L45 10L40 17ZM29 10H45M34 4L34 10L37 17L40 10L40 4"/></svg>
+              <time datetime="17:30" class="schedule-time">17:30</time>
+              <h3 class="schedule-title"><span>ҰЗАТУ РӘСІМІ</span></h3>
+              <span class="schedule-accent" aria-hidden="true">✧</span>
+            </li>
+            <li class="timeline-event event-left" data-progress="0.75" style="--event-y:74%">
+              <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M47 32A15 20 0 1 1 17 32A15 20 0 1 1 47 32M42 32A10 15 0 1 1 22 32A10 15 0 1 1 42 32M5 9V24Q5 29 9 29Q13 29 13 24V9M9 9V54M58 54V9Q51 14 51 30H58"/><path pathLength="1" d="M47 32A15 20 0 1 1 17 32A15 20 0 1 1 47 32M42 32A10 15 0 1 1 22 32A10 15 0 1 1 42 32M5 9V24Q5 29 9 29Q13 29 13 24V9M9 9V54M58 54V9Q51 14 51 30H58"/></svg>
+              <time datetime="18:00" class="schedule-time">18:00</time>
+              <h3 class="schedule-title"><span>БАНКЕТ</span></h3>
+              <span class="schedule-accent" aria-hidden="true">✧</span>
+            </li>
+            <li class="timeline-event event-right" data-progress="0.95" style="--event-y:92%">
+              <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M7 55H57M11 55V35H53V55M18 35V19H46V35M11 40Q16 49 22 40Q28 49 34 40Q40 49 46 40Q50 46 53 40M18 25Q25 33 32 25Q39 33 46 25M27 19V13M37 19V13M32 12C19 5 27 0 32 5C37 0 45 5 32 12Z"/><path pathLength="1" d="M7 55H57M11 55V35H53V55M18 35V19H46V35M11 40Q16 49 22 40Q28 49 34 40Q40 49 46 40Q50 46 53 40M18 25Q25 33 32 25Q39 33 46 25M27 19V13M37 19V13M32 12C19 5 27 0 32 5C37 0 45 5 32 12Z"/></svg>
+              <p class="schedule-time schedule-finale">Тәтті сәт</p>
+              <h3 class="schedule-title"><span>МЕРЕКЕЛІК ТОРТ</span></h3>
+              <span class="schedule-accent" aria-hidden="true">✧</span>
+            </li>
+          </ol>
+        </div>
+        <p class="timeline-hint">Жылы сәттерге бірге қадам басайық <span aria-hidden="true">↓</span></p>
+      </div>
+    </section>
+
+    <section class="location section-pad timeline-venue" id="venue" aria-labelledby="location-title">
+      <div class="location-border reveal">
+        <div class="ornament" aria-hidden="true">✧</div>
+        <p class="eyebrow">РЕСТОРАН</p>
+        <h2 id="location-title" class="text-mask"><span class="text-reveal" data-content="venue">ULUU TOO PREMIUM</span></h2>
+        <div class="short-rule" aria-hidden="true"></div>
+        <p class="venue-address" data-content="address">Бішкек қ., Ленин даңғылы, 185/1</p>
+        <p class="venue-date" data-date="venueDate">13 қазан, 2026 жыл, сейсенбі, 17:00</p>
+        <a class="button button-primary venue-map" id="map-link" target="_blank" rel="noopener noreferrer">КАРТАНЫ АШУ <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="rsvp-section paper-scene section-pad" id="rsvp" aria-labelledby="rsvp-title">
+      <div class="paper-floral rsvp-floral" aria-hidden="true"><div class="paper-floral-enter"><img src="assets/floral-spray.png" alt="" loading="lazy" width="1086" height="1448"></div></div>
+      <div class="paper-content">
+        <h2 class="calligraphy paper-enter" id="rsvp-title" style="--paper-delay:150ms">Анкета</h2>
+        <p class="paper-copy paper-enter" style="--paper-delay:350ms">Құрметті қонақ!<br>Тойымызға қатысатыныңызды<br>төмендегі форма арқылы<br>растауыңызды сұраймыз.</p>
+        <form id="rsvp-form" class="rsvp-form" novalidate>
+          <fieldset id="rsvp-fields" disabled>
+            <legend class="sr-only">Тойға қатысу туралы жауап</legend>
+            <div class="form-row paper-enter" style="--paper-delay:550ms">
+              <label for="guestName">Сіздің аты-жөніңіз</label>
+              <input type="text" id="guestName" name="guestName" placeholder="Аты-жөніңіз" autocomplete="name" maxlength="120" required aria-describedby="name-error">
+              <p class="field-error" id="name-error" hidden></p>
+            </div>
+            <fieldset class="attendance-group paper-enter" style="--paper-delay:700ms" aria-describedby="attendance-error">
+              <legend>Тойға қатысасыз ба?</legend>
+              <div class="attendance-options">
+                <label class="attendance-option"><input type="radio" name="attendance" value="yes" required><span>Иә</span></label>
+                <label class="attendance-option"><input type="radio" name="attendance" value="no" required><span>Жоқ</span></label>
+              </div>
+              <p class="field-error" id="attendance-error" hidden></p>
+            </fieldset>
+            <div class="guest-row paper-enter" style="--paper-delay:850ms">
+              <label id="guest-count-label" for="guestCount">Қонақтар саны:</label>
+              <div class="guest-stepper" id="guest-stepper" role="group" aria-labelledby="guest-count-label" aria-describedby="guest-count-note count-error">
+                <button id="guest-minus" type="button" aria-label="Қонақтар санын азайту" disabled>−</button>
+                <output id="guestCount" aria-live="polite" aria-atomic="true">1</output>
+                <button id="guest-plus" type="button" aria-label="Қонақтар санын көбейту">+</button>
+              </div>
+              <p id="guest-count-note" class="form-note">Өзіңізді қоса есептеңіз.</p>
+              <p class="field-error" id="count-error" hidden></p>
+            </div>
+            <button class="button button-primary rsvp-submit paper-enter" type="submit" style="--paper-delay:1050ms">ЖІБЕРУ <span aria-hidden="true">↗</span></button>
+            <p id="rsvp-error" class="field-error" role="alert" hidden></p>
+          </fieldset>
+          <p class="form-note paper-enter" style="--paper-delay:1150ms">Жауап WhatsApp-та ашылады.<br>Оны жіберу үшін WhatsApp ішіндегі<br>«Жіберу» батырмасын басыңыз.</p>
+        </form>
+        <div class="rsvp-success" id="rsvp-success" hidden>
+          <p class="success-title" role="status" id="rsvp-status"></p>
+          <p class="form-note">Хабарлама автоматты түрде жіберілмейді.<br>WhatsApp ашылмаса, төмендегі сілтемені басыңыз.</p>
+          <a class="button button-outline" id="rsvp-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp-та ашу <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section paper-scene section-pad" id="contact" aria-labelledby="contact-title">
+      <div class="contact-bouquet" aria-hidden="true">
+        <div class="contact-flower-layer layer-back" data-contact-depth="0.03"><div class="paper-floral-enter"><img src="assets/floral-spray.png" alt="" loading="lazy" width="1086" height="1448"></div></div>
+        <div class="contact-flower-layer layer-main" data-contact-depth="0.05"><div class="paper-floral-enter"><img src="assets/floral-spray.png" alt="" loading="lazy" width="1086" height="1448"></div></div>
+        <div class="contact-flower-layer layer-front" data-contact-depth="0.08"><div class="paper-floral-enter"><img src="assets/floral-spray.png" alt="" loading="lazy" width="1086" height="1448"></div></div>
+      </div>
+      <div class="paper-content">
+        <h2 class="calligraphy paper-enter" id="contact-title" style="--paper-delay:150ms">Байланыс</h2>
+        <p class="paper-copy paper-enter" style="--paper-delay:350ms">Сұрақтарыңыз болса,<br>той ұйымдастырушысымен<br>WhatsApp арқылы байланыса аласыз.</p>
+        <a class="organizer-link paper-enter" id="organizer-whatsapp" target="_blank" rel="noopener noreferrer" style="--paper-delay:550ms">
+          <span class="whatsapp-icon-wrap"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5A18 18 0 0 0 8.4 32L6 42L16 39.5A18 18 0 1 0 24 5Z"/><path d="M17 14C14 15 13 19 16 25C19 31 27 35 31 32L34 28L28 25L25 28Q21 26 19 22L21 19L18 14Z"/></svg></span>
+          <span>WhatsApp арқылы жазу</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="lace-divider reveal" aria-hidden="true">
+      <svg viewBox="0 0 720 64" preserveAspectRatio="xMidYMid slice"><defs><pattern id="wedding-lace" width="60" height="64" patternUnits="userSpaceOnUse"><path d="M0 15H60M0 19Q15 53 30 19Q45 53 60 19M0 19Q15 65 30 19Q45 65 60 19M0 19L15 7L30 19L45 7L60 19M10 19L15 13L20 19L15 25ZM40 19L45 13L50 19L45 25ZM0 44Q15 64 30 44Q45 64 60 44"/><circle cx="15" cy="52" r="2"/><circle cx="45" cy="52" r="2"/></pattern></defs><path fill="url(#wedding-lace)" stroke="none" d="M0 0H720V64H0Z"/></svg>
+    </div>
+
+    <section class="wish-section section-pad" aria-labelledby="wish-title">
+      <div class="reveal reveal-scale">
+        <h2 class="eyebrow" id="wish-title">АҚ ТІЛЕК</h2>
+        <p class="section-copy">Ақ ниетпен келген әр қонақ —<br>біздің қуанышымыздың бір бөлшегі.</p>
+        <div class="ornament" aria-hidden="true">✧</div>
+        <p class="section-copy">Осы ерекше күнімізде<br>ақ тілегіңіз бен жылы лебізіңіз<br>біз үшін ең қымбат сый болмақ.</p>
+      </div>
+    </section>
+
+    <section class="final-screen paper-scene section-pad" id="farewell" aria-labelledby="farewell-title">
+      <div class="final-composition">
+        <h2 class="final-salutation" id="farewell-title">Құрметпен,</h2>
+        <p class="final-names"><span class="final-first" data-content="hosts">Айтжан мен Күнсұлу</span> отбасы</p>
+        <div class="wax-heart" id="wax-heart" aria-hidden="true">
+          <svg class="wax-heart-fallback" viewBox="0 0 180 180"><defs>
+            <radialGradient id="wax-color" cx=".32" cy=".22" r=".85"><stop stop-color="#b45460"/><stop offset=".45" stop-color="#842d40"/><stop offset="1" stop-color="#481222"/></radialGradient>
+            <linearGradient id="wax-rim" x2=".8" y2="1"><stop stop-color="#e7a397"/><stop offset=".45" stop-color="#60142b"/><stop offset="1" stop-color="#b86165"/></linearGradient>
+          </defs><path fill="url(#wax-color)" stroke="#752337" stroke-width="3" d="M90 154C77 146 63 135 48 123C30 109 17 94 15 74C12 49 26 26 49 25C66 21 81 32 90 47C100 30 115 20 132 25C156 29 169 48 165 72C165 93 149 110 135 124C121 139 104 148 90 154Z"/>
+          <path fill="none" stroke="url(#wax-rim)" stroke-width="4" d="M90 137C66 121 30 100 30 72C28 52 39 39 53 40C70 39 82 54 90 65C99 51 110 38 127 40C143 41 153 54 150 73C148 99 115 123 90 137Z"/>
+          <path fill="none" stroke="#df9c9260" stroke-width="1.5" d="M90 132C66 114 36 96 36 73C34 55 44 44 56 46C73 48 82 62 90 73C100 57 114 43 128 46C143 49 148 61 143 78C138 101 112 116 90 132Z"/>
+          <path fill="none" stroke="#f4b4a5" stroke-opacity=".3" stroke-linecap="round" stroke-width="3" d="M25 60Q32 30 55 33"/></svg>
+          <img id="wax-heart-image" alt="" width="180" height="180" hidden>
+        </div>
+        <p class="final-message">Кездескенше!</p>
+        <p class="final-date" data-date="compact">13.10.2026</p>
+      </div>
+    </section>
+  </main>
+  <button class="motion-control" id="motion-toggle" type="button" aria-label="Анимацияны тоқтату" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span></button>
+  <button class="music-control" id="music-toggle" type="button" aria-label="Музыканы қосу" aria-pressed="false" hidden><span class="music-symbol" aria-hidden="true">Ⅱ</span><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  <audio id="background-music" loop preload="none"></audio>
+  <noscript><style>.intro{display:none}.invitation{visibility:visible;opacity:1;height:auto}.reveal{opacity:1;transform:none;filter:none;clip-path:none}body{overflow:auto}</style><p class="noscript-note">Шақыртуды ашу және қатысуды растау үшін JavaScript қосыңыз.</p></noscript>
+</body>
+</html>

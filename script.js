@@ -3,16 +3,16 @@ const CONFIG = {
   bride: "Әсем",
   eventType: "ҚЫЗ ҰЗАТУ ТОЙЫ",
   event: { date: "2026-10-13T17:00:00+06:00", timezone: "Asia/Bishkek", city: "Бішкек" },
-  hosts: "Айтжан мен Күнсұлу",
+  hosts: "Айтжан & Күнсұлу",
   venue: {
-    name: "ULUU TOO PREMIUM",
+    name: "GOLDEN HILLS BALLROOM",
     address: "Бішкек қ., Ленин даңғылы, 185/1",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=ULUU+TOO+PREMIUM+Бишкек+Ленина+185%2F1"
   },
   whatsapp: { rsvpPhone: "77000000000", organizerPhone: "77000000000" },
   musicPath: "assets/music.mp3",
   musicEnabled: true,
-  musicFileAvailable: false, // Set true after adding music.mp3; otherwise a quiet original instrumental plays.
+  musicFileAvailable: true, // Set true after adding music.mp3; otherwise a quiet original instrumental plays.
   stampSoundPath: "assets/stamp.mp3",
   stampSoundEnabled: false, // Enable only after adding the optional audio file.
   waxHeartPath: null, // Set to "assets/wax-heart.png" if adding your own seal image.
@@ -58,7 +58,7 @@ function openInvitation() {
       if (revealObserver) revealObserver.observe(element);
       else element.classList.add('visible');
     });
-  }, reducedMotion.matches ? 30 : 2250);
+  }, reducedMotion.matches ? 30 : 1900);
 }
 
 function updateMusicState() {
@@ -445,7 +445,8 @@ function initPaperScenes() {
     const offset = window.scrollY + window.innerHeight / 2 - center;
     const limit = window.innerWidth < 768 ? 7 : 18;
     layers.forEach(layer => {
-      const y = Math.max(-limit, Math.min(limit, offset * Number(layer.dataset.contactDepth)));
+      // Preserve distinct depths instead of clamping every flower to the same offset.
+      const y = Math.tanh(offset / window.innerHeight * 1.8) * limit * Number(layer.dataset.contactDepth) / .08;
       layer.style.transform = `translate3d(0,${y.toFixed(2)}px,0)`;
     });
   }
@@ -522,7 +523,8 @@ function initWeddingTimeline() {
     measureFrame = 0;
     if (!invitationOpened) return;
     start = section.getBoundingClientRect().top + window.scrollY;
-    travel = Math.max(1, section.offsetHeight - sticky.offsetHeight);
+    // Actual pinned distance, including the mobile small-viewport height.
+    travel = Math.max(0, section.offsetHeight - sticky.offsetHeight);
     pathLength = path.getTotalLength();
     progressPath.style.strokeDasharray = String(pathLength);
     // Positions use the same SVG curve as the heart, converted to responsive percentages.
@@ -571,6 +573,7 @@ function initWeddingTimeline() {
       event.element.classList.toggle('is-reached', index <= active);
       event.element.classList.toggle('is-active', index === active);
       event.element.classList.toggle('is-past', index < active);
+      event.element.classList.toggle('is-near', Math.abs(progress - event.progress) <= .08);
       if (index === active) event.element.setAttribute('aria-current', 'step');
       else event.element.removeAttribute('aria-current');
     });
@@ -578,14 +581,15 @@ function initWeddingTimeline() {
     if (events.some(event => previous < event.progress && progress >= event.progress)) pulse();
     if (progress === 1 && !finalPulsed) { pulse(); finalPulsed = true; }
     if (progress < .98) finalPulsed = false;
-    section.style.setProperty('--handoff', clamp((progress - .94) / .06).toFixed(3));
+    section.style.setProperty('--handoff', clamp((progress - .97) / .03).toFixed(3));
+    section.style.setProperty('--hint-opacity', clamp((progress - .90) / .06).toFixed(3));
     venue.classList.toggle('venue-ready', progress >= .95);
     previous = progress;
   }
   function render(time) {
     frame = 0;
     if (motionPaused || reducedMotion.matches || document.hidden || !invitationOpened) return;
-    const target = clamp((window.scrollY - start) / travel);
+    const target = travel > 0 ? clamp((window.scrollY - start) / travel) : 0;
     const elapsed = Math.min(64, lastTime ? time - lastTime : 16);
     lastTime = time;
     // Time-based smoothing behaves consistently on 60/120 Hz phones and reverse scrolling.
@@ -616,9 +620,12 @@ function initWeddingTimeline() {
     observer.observe(document.querySelector('.hero'));
     observer.observe(document.getElementById('celebration'));
     observer.observe(document.querySelector('.family'));
+    const dressCode = document.querySelector('.dress-code');
+    if (dressCode) observer.observe(dressCode);
   }
   progressPath.style.strokeDasharray = String(pathLength);
   progressPath.style.strokeDashoffset = String(pathLength);
+  paint(0);
   requestMeasure();
 }
 

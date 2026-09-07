@@ -28,16 +28,16 @@ function fixture() {
   }
   const section = new Node(), sticky = new Node(), route = new Node();
   const progress = new Node(), heart = new Node(), arrival = new Node(), venue = new Node();
-  const events = [.15, .45, .75, .95].map(value => Object.assign(new Node(), { dataset:{ progress:String(value) } }));
-  const stops = [.15, .45, .75, .95].map(value => Object.assign(new Node(), { dataset:{ stop:String(value) } }));
+  const events = [.15, .42, .70, .92].map(value => Object.assign(new Node(), { dataset:{ progress:String(value) } }));
+  const stops = [.15, .42, .70, .92].map(value => Object.assign(new Node(), { dataset:{ stop:String(value) } }));
   const pointAt = distance => ({ x:180 + 105 * Math.sin(distance / 1000 * 4 * Math.PI), y:18 + distance / 1000 * 540 });
   route.getTotalLength = () => { lengthReads++; return 1000; };
   route.getPointAtLength = distance => {
     assert.ok(distance >= 0 && distance <= 1000, 'arc length must stay within route');
     return pointAt(distance);
   };
-  route.ownerSVGElement = { viewBox:{ baseVal:{ height:640 } } };
-  section.offsetHeight = 2400; sticky.offsetHeight = 800;
+  route.ownerSVGElement = { viewBox:{ baseVal:{ height:600 } } };
+  section.offsetHeight = 1440; sticky.offsetHeight = 800;
   section.getBoundingClientRect = () => { boundsReads++; return { top:1200 - context.window.scrollY }; };
   section.querySelector = () => sticky;
   section.querySelectorAll = selector => selector === '.timeline-event' ? events : stops;
@@ -60,7 +60,7 @@ function fixture() {
       time += 16; batch.forEach(callback => callback(time));
     }
   }
-  function scrollTo(value) { context.window.scrollY = 1200 + value * 1600; listeners.get('scroll')(); flush(); }
+  function scrollTo(value) { context.window.scrollY = 1200 + value * 640; listeners.get('scroll')(); flush(); }
   flush();
   return { context, section, progress, heart, venue, events, stops, pointAt, flush, scrollTo,
     fire:name => listeners.get(name)(), stats:() => ({ boundsReads, lengthReads, pulses }) };
@@ -68,10 +68,11 @@ function fixture() {
 
 test('heart and drawn line use the same SVG arc length at every event and rewind', () => {
   const f = fixture();
-  for (const value of [0, .15, .45, .75, .95, 1, .45, 0]) {
+  for (const value of [0, .15, .42, .70, .92, 1, .42, 0]) {
     f.scrollTo(value);
     const expected = f.pointAt(value * 1000);
-    assert.equal(f.heart.attributes.transform, `translate(${expected.x} ${expected.y})`);
+    const coordinates = f.heart.attributes.transform.match(/translate\(([^ ]+) ([^)]+)\)/).slice(1).map(Number);
+    assert.ok(Math.hypot(coordinates[0] - expected.x, coordinates[1] - expected.y) < 1e-8);
     assert.ok(Math.abs(Number(f.progress.style.strokeDashoffset) - 1000 * (1 - value)) < .001);
   }
   assert.ok(f.events.every(event => !event.classes.has('is-reached')));
@@ -97,7 +98,7 @@ test('geometry is cached during scrolling, markers use responsive SVG coordinate
   assert.equal(f.stats().boundsReads, before.boundsReads);
   assert.equal(f.stats().lengthReads, before.lengthReads);
   assert.equal(f.stops[0].attributes.cx, f.pointAt(150).x);
-  assert.equal(f.events[0].values['--event-y'], `${f.pointAt(150).y / 640 * 100}%`);
+  assert.equal(f.events[0].values['--event-y'], `${f.pointAt(150).y / 600 * 100}%`);
   f.fire('resize'); f.flush();
   assert.equal(f.stats().boundsReads, before.boundsReads + 1);
 });
@@ -114,6 +115,21 @@ test('progress clamps, pause exposes the full path and resume uses current scrol
   f.fire('invitation:motionchange'); f.flush();
   const reads = f.stats().lengthReads;
   f.scrollTo(.9); assert.equal(f.stats().lengthReads, reads);
+});
+
+test('handoff appears only at the end and zero travel remains finite', () => {
+  const f = fixture();
+  f.scrollTo(.9);
+  assert.equal(Number(f.section.values['--hint-opacity']), 0);
+  assert.equal(Number(f.section.values['--handoff']), 0);
+  f.scrollTo(.96);
+  assert.equal(Number(f.section.values['--hint-opacity']), 1);
+  assert.equal(Number(f.section.values['--handoff']), 0);
+  f.scrollTo(1);
+  assert.equal(Number(f.section.values['--handoff']), 1);
+  f.section.offsetHeight = 800;
+  f.fire('resize'); f.flush();
+  assert.equal(Number(f.progress.style.strokeDashoffset), 1000);
 });
 
 test('markup keeps identical paths, required times, configurable map and unique IDs', () => {

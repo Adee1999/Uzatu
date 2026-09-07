@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marck+Script&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="photo-fix.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
         <div class="invitation-card" aria-hidden="true">
           <span class="card-label" data-content="eventType">ҚЫЗ ҰЗАТУ ТОЙЫ</span>
           <span class="card-names" data-content="bride">Әсем</span>
-          <span class="card-date" data-date="compact">13.10.2026</span>
+          <span class="card-date" data-date="numeric">13 · 10 · 2026</span>
         </div>
         <div class="fold fold-left"></div>
         <div class="fold fold-right"></div>
@@ -73,7 +74,7 @@
 
     <section class="celebration section-pad" id="celebration">
       <div class="reveal">
-        <h2 class="guest-title letter-animation" data-letters>Құрметті қонақтар!</h2>
+        <h2 class="guest-title letter-animation" data-letters>Құрметті Ағайын-туыс, бауырлар, құда-жекжат, нағашы-жиен, бөлелер, дос-жарандар, әріптестер, көршілер!</h2>
         <p class="hero-copy">Сіздерді өміріміздегі ең қуанышты<br>сәттердің біріне куә болып,<br>ақ дастарханымыздың қадірлі қонағы<br>болуға шын жүректен шақырамыз.</p>
         <p class="eyebrow">АТА-АНА МЕН ОТБАСЫ</p>
         <p class="event-type" data-content="eventType">ҚЫЗ ҰЗАТУ ТОЙЫ</p>
@@ -99,11 +100,11 @@
       <div class="reveal">
         <div class="ornament" aria-hidden="true">✧</div>
         <p class="eyebrow">Ақ тілекпен, той иелері</p>
-        <h2 data-content="hosts">Айтжан мен Күнсұлу</h2>
+        <h2 data-content="hosts">Айтжан & Күнсұлу</h2>
         <p class="section-copy">Қуанышымыздың қадірлі қонағы<br>болыңыз!</p>
       </div>
       <figure class="photo-frame reveal reveal-clip" data-image-parallax>
-        <img src="assets/invitation-photo.jpg" alt="Ақ раушан гүлдері — қуаныш пен ізгі тілектің белгісі" loading="lazy" width="900" height="1200" id="invitation-photo">
+        <img src="assets/2920ed2d421bbdae.jpeg" alt="Ақ раушан гүлдері — қуаныш пен ізгі тілектің белгісі" width="900" height="1200" id="invitation-photo">
         <div class="photo-fallback" aria-hidden="true"><span>Ә</span><small>ҚЫЗ ҰЗАТУ ТОЙЫ</small></div>
         <figcaption>Бірге жазылатын әдемі хикая…</figcaption>
       </figure>
@@ -113,6 +114,41 @@
       <div class="reveal reveal-blur">
         <h2 class="eyebrow" id="dress-code-title">ДРЕСС-КОД</h2>
         <p class="section-copy">Кешіміздің әсем атмосферасын<br>бірге толықтыру үшін<br>салтанатты әрі нәзік реңктердегі<br>киім үлгісін таңдасаңыздар,<br>қуанышты боламыз.</p>
+        <div class="dress-code-genders paper-enter" style="--paper-delay:550ms">
+
+  <!-- Ерлер -->
+  <div class="dress-gender">
+    <div class="dress-gender-icon">
+       <img
+      src="assets/men-dress-code.png"
+      alt="Ерлерге арналған классикалық костюм"
+      class="dress-icon-img"
+    >
+    </div>
+
+    <p>
+      <strong>ЕРЛЕР ҚАУЫМЫ:</strong>
+      <span>КЛАССИКАЛЫҚ<br>КОСТЮМ</span>
+    </p>
+  </div>
+
+  <!-- Әйелдер -->
+  <div class="dress-gender">
+    <div class="dress-gender-icon">
+      <img
+      src="assets/women-dress-code.png"
+      alt="Әйелдерге арналған кешкі көйлек"
+      class="dress-icon-img"
+    >
+    </div>
+
+    <p>
+      <strong>ӘЙЕЛДЕР ҚАУЫМЫ:</strong>
+      <span>КЕШКІ<br>КӨЙЛЕК</span>
+    </p>
+  </div>
+
+</div>
         <ul class="dress-palette" aria-label="Киімге ұсынылатын реңктер">
           <li style="--swatch:#f4e9d7;--swatch-delay:0ms"><span class="sr-only">Крем</span></li>
           <li style="--swatch:#d3b99e;--swatch-delay:120ms"><span class="sr-only">Беж</span></li>
@@ -128,15 +164,15 @@
     <section class="wedding-timeline" id="wedding-schedule" aria-labelledby="schedule-title">
       <div class="timeline-sticky">
         <header class="timeline-heading">
-          <p class="eyebrow">Әр сәті — естелік</p>
+          <p class="eyebrow">ӘСЕМНІҢ ҰЗАТЫЛУ ТОЙЫ</p>
           <h2 id="schedule-title">Той бағдарламасы</h2>
         </header>
         <div class="timeline-scene">
-          <svg class="timeline-route" viewBox="0 0 360 640" aria-hidden="true">
+          <svg class="timeline-route" viewBox="0 0 360 600" preserveAspectRatio="none" aria-hidden="true">
             <path class="timeline-base" id="timeline-path" d="M180 18 C325 28 325 130 180 165 S35 275 180 302 S325 415 180 442 S65 530 180 558"/>
             <path class="timeline-progress" id="timeline-progress" d="M180 18 C325 28 325 130 180 165 S35 275 180 302 S325 415 180 442 S65 530 180 558"/>
             <g class="timeline-stops">
-              <circle data-stop="0.15" r="3.5"/><circle data-stop="0.45" r="3.5"/><circle data-stop="0.75" r="3.5"/><circle data-stop="0.95" r="3.5"/>
+              <circle data-stop="0.15" r="3.5"/><circle data-stop="0.42" r="3.5"/><circle data-stop="0.70" r="3.5"/><circle data-stop="0.92" r="3.5"/>
             </g>
             <g id="timeline-heart" transform="translate(180 18)"><g class="heart-arrival"><g class="heart-breathe"><path d="M0 15 C-5 10 -18 2 -18 -7 C-18 -18 -5 -21 0 -11 C5 -21 18 -18 18 -7 C18 2 5 10 0 15Z"/></g></g></g>
           </svg>
@@ -147,19 +183,19 @@
               <h3 class="schedule-title"><span>ҚОНАҚТАРДЫҢ<br>ЖИНАЛУЫ</span></h3>
               <span class="schedule-accent" aria-hidden="true">✧</span>
             </li>
-            <li class="timeline-event event-right" data-progress="0.45" style="--event-y:44%">
-              <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M36 37A16 16 0 1 1 35 28M28 39A16 16 0 1 0 29 28M34 17L29 10L34 4L40 4L45 10L40 17ZM29 10H45M34 4L34 10L37 17L40 10L40 4"/><path pathLength="1" d="M36 37A16 16 0 1 1 35 28M28 39A16 16 0 1 0 29 28M34 17L29 10L34 4L40 4L45 10L40 17ZM29 10H45M34 4L34 10L37 17L40 10L40 4"/></svg>
+            <li class="timeline-event event-right" data-progress="0.42" style="--event-y:44%">
+              <svg class="schedule-icon uzatu-ornament" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M8 54H56M12 54V29Q12 15 32 6Q52 15 52 29V54M18 49V30Q18 20 32 13Q46 20 46 30V49M20 32Q26 23 32 21Q38 23 44 32M23 32Q19 35 23 40Q27 44 30 39Q32 34 27 34M41 32Q45 35 41 40Q37 44 34 39Q32 34 37 34M32 21V48M28 48L32 44L36 48L32 52Z"/><path pathLength="1" d="M8 54H56M12 54V29Q12 15 32 6Q52 15 52 29V54M18 49V30Q18 20 32 13Q46 20 46 30V49M20 32Q26 23 32 21Q38 23 44 32M23 32Q19 35 23 40Q27 44 30 39Q32 34 27 34M41 32Q45 35 41 40Q37 44 34 39Q32 34 37 34M32 21V48M28 48L32 44L36 48L32 52Z"/></svg>
               <time datetime="17:30" class="schedule-time">17:30</time>
               <h3 class="schedule-title"><span>ҰЗАТУ РӘСІМІ</span></h3>
               <span class="schedule-accent" aria-hidden="true">✧</span>
             </li>
-            <li class="timeline-event event-left" data-progress="0.75" style="--event-y:74%">
+            <li class="timeline-event event-left" data-progress="0.70" style="--event-y:74%">
               <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M47 32A15 20 0 1 1 17 32A15 20 0 1 1 47 32M42 32A10 15 0 1 1 22 32A10 15 0 1 1 42 32M5 9V24Q5 29 9 29Q13 29 13 24V9M9 9V54M58 54V9Q51 14 51 30H58"/><path pathLength="1" d="M47 32A15 20 0 1 1 17 32A15 20 0 1 1 47 32M42 32A10 15 0 1 1 22 32A10 15 0 1 1 42 32M5 9V24Q5 29 9 29Q13 29 13 24V9M9 9V54M58 54V9Q51 14 51 30H58"/></svg>
               <time datetime="18:00" class="schedule-time">18:00</time>
               <h3 class="schedule-title"><span>БАНКЕТ</span></h3>
               <span class="schedule-accent" aria-hidden="true">✧</span>
             </li>
-            <li class="timeline-event event-right" data-progress="0.95" style="--event-y:92%">
+            <li class="timeline-event event-right" data-progress="0.92" style="--event-y:92%">
               <svg class="schedule-icon" viewBox="0 0 64 64" aria-hidden="true"><path class="icon-base" pathLength="1" d="M7 55H57M11 55V35H53V55M18 35V19H46V35M11 40Q16 49 22 40Q28 49 34 40Q40 49 46 40Q50 46 53 40M18 25Q25 33 32 25Q39 33 46 25M27 19V13M37 19V13M32 12C19 5 27 0 32 5C37 0 45 5 32 12Z"/><path pathLength="1" d="M7 55H57M11 55V35H53V55M18 35V19H46V35M11 40Q16 49 22 40Q28 49 34 40Q40 49 46 40Q50 46 53 40M18 25Q25 33 32 25Q39 33 46 25M27 19V13M37 19V13M32 12C19 5 27 0 32 5C37 0 45 5 32 12Z"/></svg>
               <p class="schedule-time schedule-finale">Тәтті сәт</p>
               <h3 class="schedule-title"><span>МЕРЕКЕЛІК ТОРТ</span></h3>
@@ -175,7 +211,7 @@
       <div class="location-border reveal">
         <div class="ornament" aria-hidden="true">✧</div>
         <p class="eyebrow">РЕСТОРАН</p>
-        <h2 id="location-title" class="text-mask"><span class="text-reveal" data-content="venue">ULUU TOO PREMIUM</span></h2>
+        <h2 id="location-title" class="text-mask"><span class="text-reveal" data-content="venue">Golden hills ballroom</span></h2>
         <div class="short-rule" aria-hidden="true"></div>
         <p class="venue-address" data-content="address">Бішкек қ., Ленин даңғылы, 185/1</p>
         <p class="venue-date" data-date="venueDate">13 қазан, 2026 жыл, сейсенбі, 17:00</p>
@@ -259,7 +295,7 @@
     <section class="final-screen paper-scene section-pad" id="farewell" aria-labelledby="farewell-title">
       <div class="final-composition">
         <h2 class="final-salutation" id="farewell-title">Құрметпен,</h2>
-        <p class="final-names"><span class="final-first" data-content="hosts">Айтжан мен Күнсұлу</span> отбасы</p>
+        <p class="final-names"><span class="final-first" data-content="hosts">Айтжан & Күнсұлу</span> отбасы</p>
         <div class="wax-heart" id="wax-heart" aria-hidden="true">
           <svg class="wax-heart-fallback" viewBox="0 0 180 180"><defs>
             <radialGradient id="wax-color" cx=".32" cy=".22" r=".85"><stop stop-color="#b45460"/><stop offset=".45" stop-color="#842d40"/><stop offset="1" stop-color="#481222"/></radialGradient>
@@ -277,7 +313,7 @@
   </main>
   <button class="motion-control" id="motion-toggle" type="button" aria-label="Анимацияны тоқтату" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span></button>
   <button class="music-control" id="music-toggle" type="button" aria-label="Музыканы қосу" aria-pressed="false" hidden><span class="music-symbol" aria-hidden="true">Ⅱ</span><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
-  <audio id="background-music" loop preload="none"></audio>
+  <audio id="background-music" loop preload="auto"></audio>
   <noscript><style>.intro{display:none}.invitation{visibility:visible;opacity:1;height:auto}.reveal{opacity:1;transform:none;filter:none;clip-path:none}body{overflow:auto}</style><p class="noscript-note">Шақыртуды ашу және қатысуды растау үшін JavaScript қосыңыз.</p></noscript>
 </body>
 </html>

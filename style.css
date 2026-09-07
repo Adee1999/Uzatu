@@ -10,9 +10,6 @@
 @media(max-height:650px){.intro{padding-top:24px;padding-bottom:24px}.intro-heading h1{font-size:36px}.intro-heading .ornament{margin-top:8px}.envelope-stage{width:min(370px,72vw);margin-top:25px;margin-bottom:20px}.intro-date{margin-top:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}.hero-photo{transform:none!important}.reveal{transform:none}.intro.departed{transform:none}}
 
-/* The card clears the front pocket before the page transition. */
-.invitation-open .invitation-card{animation:card-front 1.6s step-end forwards}
-@keyframes card-front{0%{z-index:2}100%{z-index:6}}
 
 /* Cinematic motion: nested layers keep entrance, floating and parallax independent. */
 :root { --ease-cinema:cubic-bezier(.19,1,.22,1); --rose:#f1cec5; }
@@ -190,7 +187,7 @@
 .schedule-accent { display:block; color:var(--gold); font-size:15px; line-height:1.2; margin-top:8px; }
 .timeline-hint { font:italic 16px var(--serif); color:var(--muted); margin-top:10px; }
 .timeline-hint span { display:inline-block; margin-left:8px; }
-.timeline-ready.wedding-timeline { height:300vh; height:300svh; }
+.timeline-ready.wedding-timeline { height:180vh; height:180svh; }
 .timeline-ready .timeline-sticky { position:sticky; top:0; height:100vh; height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; }
 .timeline-ready .timeline-scene { width:min(100%,410px,calc((100svh - 185px) * .5625)); flex:none; }
 .timeline-ready .timeline-heading,.timeline-ready .timeline-scene,.timeline-ready .timeline-hint { opacity:calc(1 - var(--handoff,0) * .45); }
@@ -352,7 +349,6 @@ body:after { content:''; position:fixed; top:0; bottom:0; left:0; right:0; margi
 .intro-date { font:10px/1.7 var(--sans); letter-spacing:.12em; margin-top:20px; text-transform:uppercase; }
 .invitation-open .wax-seal { animation:seal-release .6s ease both; }
 .invitation-open .envelope-flap { transition-delay:.48s; transition-duration:.9s; }
-.invitation-open .invitation-card { transition-delay:1.02s; transition-duration:1.05s; transform:translateY(-82%) scale(1.07); animation:card-front 1.95s step-end forwards; }
 .hero { min-height:max(740px,100svh); padding:30px 18px 26px; background:var(--ivory); }
 .hero-composition { width:100%; max-width:420px; padding:30px 12px 24px; }
 .plaque { color:#f4d6cb; }
@@ -396,7 +392,7 @@ body:after { content:''; position:fixed; top:0; bottom:0; left:0; right:0; margi
 .visible .dress-palette li { animation:count-enter .9s var(--ease-cinema) var(--swatch-delay) both; }
 .dress-note { font:italic 18px/1.5 var(--serif); color:var(--muted); }
 .dress-code .ornament { margin-bottom:0; }
-.timeline-ready.wedding-timeline { height:250vh; height:250svh; }
+
 .timeline-ready .timeline-sticky { justify-content:flex-start; padding:44px 20px 18px; }
 .timeline-heading h2 { font-size:37px; margin-top:10px; }
 .timeline-ready .timeline-scene { width:min(100%,390px,calc((100svh - 185px) * .5625)); margin-top:20px; }
@@ -459,3 +455,259 @@ body:after { content:''; position:fixed; top:0; bottom:0; left:0; right:0; margi
 @media(min-width:768px) { .intro{padding-inline:30px}.envelope-stage{width:100%}.hero h2.hero-names{font-size:74px}.hero .date-left,.hero .date-right{font-size:10px}.section-pad{padding-inline:36px}.hero-composition{padding-inline:15px}.rsvp-floral{right:-100px}.contact-bouquet{right:-130px} }
 @media(prefers-reduced-motion:reduce) { .timeline-ready.wedding-timeline{height:auto}.timeline-ready .timeline-sticky{height:auto;position:relative}.timeline-ready .timeline-scene{width:min(100%,390px)} }
 .motion-paused .timeline-ready.wedding-timeline { height:auto; }
+/* Uzatu timeline: a single 180svh section without an invisible trailing spacer. */
+/* Keep the document as the scroll container so the timeline can stick to the viewport. */
+body.page-visible { overflow:visible; }
+.timeline-ready .timeline-sticky { overflow:hidden; padding:0; }
+.timeline-ready .timeline-heading { position:absolute; top:9%; left:20px; right:20px; }
+.timeline-heading .eyebrow { font-size:10px; letter-spacing:.13em; }
+.timeline-heading h2 { font-size:clamp(31px,8.5vw,38px); margin-top:10px; }
+.timeline-ready .timeline-scene { position:absolute; inset:19% 18px 9%; width:auto; max-width:none; margin:0; aspect-ratio:auto; }
+.timeline-route { width:100%; height:100%; }
+.timeline-ready .timeline-heading,.timeline-ready .timeline-scene { opacity:calc(1 - var(--handoff,0) * .10); }
+.timeline-ready .timeline-event { opacity:.36; }
+.timeline-ready .timeline-event.is-past { opacity:.48; }
+.timeline-ready .timeline-event.is-near:not(.is-active) { opacity:.65; }
+.timeline-ready .timeline-event.is-active { opacity:1; }
+.timeline-ready .timeline-hint { position:absolute; bottom:2.2%; left:72px; right:72px; max-width:none; margin:0; font:16px/1.45 var(--serif); opacity:var(--hint-opacity,0); transform:translateY(calc(8px * (1 - var(--hint-opacity,0)))); transition:opacity .18s,transform .25s; }
+.wedding-timeline + .timeline-venue { padding-top:28px; }
+@media(max-width:350px) { .timeline-heading h2{font-size:31px}.timeline-heading .eyebrow{font-size:9px}.timeline-ready .timeline-heading{left:15px;right:15px}.timeline-ready .timeline-scene{left:15px;right:15px}.timeline-ready .timeline-hint{font-size:15px} }
+@media(max-height:680px) { .timeline-ready .timeline-heading{top:7%}.timeline-heading h2{font-size:28px}.timeline-ready .timeline-scene{top:22%;bottom:8%}.timeline-ready .timeline-hint{display:block;font-size:13px} }
+.motion-paused .timeline-ready .timeline-sticky { overflow:visible; padding:65px 20px 35px; }
+.motion-paused .timeline-ready .timeline-heading,.motion-paused .timeline-ready .timeline-hint { position:static; }
+.motion-paused .timeline-ready .timeline-scene { position:relative; inset:auto; width:100%; aspect-ratio:360/600; margin:25px auto 0; }
+.motion-paused .timeline-ready .timeline-hint { transform:none; }
+@media(prefers-reduced-motion:reduce) { .timeline-ready .timeline-sticky{overflow:visible;padding:65px 20px 35px}.timeline-ready .timeline-heading,.timeline-ready .timeline-hint{position:static}.timeline-ready .timeline-scene{position:relative;inset:auto;width:100%;aspect-ratio:360/600;margin:25px auto 0}.timeline-ready .timeline-hint{transform:none} }
+
+/* Envelope refinement: the card remains behind the front pocket throughout opening. */
+.intro { padding:clamp(24px,5svh,48px) clamp(16px,4vw,18px); }
+.intro-heading,.intro-footer,.envelope-stage { flex-shrink:0; }
+.intro-heading .ornament { font-size:22px; line-height:1; margin:clamp(14px,2.5svh,22px) 0 0; }
+.envelope-stage { width:100%; margin:clamp(42px,7svh,64px) 0 clamp(22px,3.5svh,32px); }
+.intro-footer .envelope-dedication { margin-bottom:9px; }
+.intro-date { margin-top:clamp(12px,2svh,18px); }
+.intro .invitation-card { --card-rise:-18%; left:9%; top:6%; width:82%; height:88%; justify-content:flex-start; padding:clamp(12px,3.5vw,17px) 10px; opacity:1; color:#665044; transform:translateY(0); transition:none; z-index:2; }
+.intro .card-label { font:500 clamp(9px,2.5vw,11px)/1.5 var(--sans); letter-spacing:.22em; color:#715346; }
+.intro .card-names { font:clamp(38px,11vw,49px)/1.12 var(--script); color:var(--burgundy); margin:5px 0 3px; }
+.intro .card-date { font:600 clamp(13px,3.6vw,16px)/1.4 var(--serif); letter-spacing:.13em; color:#654638; }
+.intro .fold { z-index:3; }
+.invitation-open .intro .envelope { animation:none; }
+.invitation-open .intro .wax-seal { animation:intro-seal-release .48s cubic-bezier(.22,.75,.22,1) both; }
+.invitation-open .intro .envelope-flap { z-index:1; transition:transform .65s cubic-bezier(.22,.75,.22,1) .3s; animation:intro-flap-stack .95s step-end both; }
+.invitation-open .intro .invitation-card { z-index:2; transform:translateY(var(--card-rise)); animation:intro-card-rise .85s cubic-bezier(.22,.75,.22,1) .75s both; }
+@keyframes intro-seal-release { 0%{opacity:1;transform:translate(-50%,-50%) scale(1)}37.5%{opacity:1;transform:translate(-50%,-50%) scale(.93)}100%{opacity:0;transform:translate(-50%,-50%) scale(.72)} }
+@keyframes intro-card-rise { 0%{transform:translateY(0)}59%{transform:translateY(calc(var(--card-rise) - 6px))}100%{transform:translateY(var(--card-rise))} }
+@keyframes intro-flap-stack { 0%{z-index:4}66%,100%{z-index:1} }
+@media(max-height:760px) { .intro-heading h1{font-size:42px}.intro-heading .ornament{margin-top:14px}.envelope-stage{margin-top:42px;margin-bottom:22px}.intro .invitation-card{--card-rise:-14%} }
+@media(max-height:620px) { .intro-heading h1{font-size:36px}.intro-heading h1{margin-top:12px}.intro-heading .eyebrow{font-size:9px}.envelope-stage{width:min(100%,300px);margin-top:36px;margin-bottom:18px}.intro-footer .envelope-dedication{font-size:18px}.intro-date{margin-top:10px}.intro .invitation-card{--card-rise:-12%} }
+@media(max-width:350px),(max-height:620px) { .intro .invitation-card{padding:8px 10px}.intro .card-label{font-size:9px}.intro .card-names{font-size:34px;line-height:1.05;margin:3px 0 1px}.intro .card-date{font-size:12px} }
+
+/* Final visual polish: approved copy, structure and invitation choreography stay intact. */
+.celebration { padding-bottom:48px; }
+.family { padding-top:44px; padding-bottom:50px; }
+.dress-code { padding-top:50px; padding-bottom:48px; }
+.rsvp-section { padding-top:64px; padding-bottom:54px; background:linear-gradient(#f5ecdf,var(--paper) 180px); }
+.timeline-ready .timeline-event { opacity:.46; }
+.timeline-ready .timeline-event.is-past { opacity:.58; }
+.timeline-ready .timeline-event.is-near:not(.is-active) { opacity:.72; }
+.timeline-ready .timeline-event.is-active { opacity:1; }
+.schedule-title { color:#925965; }
+.floral-left { z-index:1; opacity:.92; }
+.floral-right { z-index:3; right:-12%; bottom:4%; }
+.floral-bottom { z-index:4; width:25%; left:-5%; bottom:-1%; }
+.floral-right img { filter:url(#floral-key) drop-shadow(-3px 5px 4px #59273614); }
+.floral-bottom img { filter:url(#floral-key) drop-shadow(1px 4px 3px #59273612); }
+.hero .parallax-layer,.contact-flower-layer { transition:transform .18s ease-out; }
+.attendance-option { border-radius:24px; transition:color .25s,background .25s; }
+.attendance-option input { transition:border-color .25s,box-shadow .3s,transform .2s; }
+.attendance-option input:checked { box-shadow:0 0 0 4px #842b3b09; }
+.attendance-option input:checked:before { animation:radio-settle .38s ease-out; }
+.attendance-option input:active { transform:scale(.91); }
+.attendance-option span { transition:color .25s; }
+.guest-stepper { transition:opacity .25s,border-color .25s,box-shadow .25s; }
+.guest-stepper:focus-within { border-color:#9e6670; box-shadow:0 0 0 3px #842b3b08; }
+.guest-stepper button { transition:transform .18s,background .2s,color .2s; }
+.guest-stepper button:active:not(:disabled) { transform:scale(.86); background:#842b3b0d; }
+@media(hover:hover) { .guest-stepper button:hover:not(:disabled){background:#842b3b08}.organizer-link:hover .whatsapp-icon-wrap{box-shadow:0 9px 26px #762d3932} }
+@keyframes radio-settle { 0%{transform:scale(.4)}65%{transform:scale(1.13)}100%{transform:scale(1)} }
+.contact-section { padding:58px 28px 78px; background:radial-gradient(ellipse at 50% 46%,#f4e9d966,transparent 72%),var(--paper); }
+.contact-section:before { content:''; position:absolute; inset:25px 20px 30px; border:1px solid #c4a76b38; border-radius:45% 45% 5px 5px / 15% 15% 5px 5px; pointer-events:none; }
+.contact-section .paper-copy { margin:20px auto 24px; }
+.organizer-link { gap:14px; }
+.whatsapp-icon-wrap { outline:1px solid #c4a76b66; outline-offset:6px; transition:box-shadow .3s; }
+.contact-bouquet { width:240px; right:-137px; bottom:8px; }
+.contact-bouquet .layer-back { opacity:.3; left:-23%; top:-6%; }
+.contact-bouquet .layer-main { opacity:.68; }
+.contact-bouquet .layer-front { opacity:.8; left:3%; top:34%; }
+.lace-divider { height:38px; opacity:.68; }
+.wish-section { padding-top:48px; padding-bottom:55px; background:linear-gradient(var(--paper),#f5ecdd); }
+.wish-section .ornament { margin:24px auto; }
+.final-screen { position:relative; padding-top:70px; padding-bottom:max(92px,env(safe-area-inset-bottom)); border-top:1px solid #c4a76b45; background:radial-gradient(ellipse at 50% 52%,#f0e1cf66,transparent 64%),var(--paper); }
+/* A restrained paired qoshqar-muiz line, used only as a small gold divider. */
+.final-screen:before { content:''; position:absolute; width:96px; height:27px; left:calc(50% - 48px); top:-14px; background-color:var(--paper); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 27'%3E%3Cg fill='none' stroke='%23a88955' stroke-width='.8' stroke-linecap='round'%3E%3Cpath d='M10 14H28Q40 14 37 7Q34 2 29 7Q27 11 33 11M86 14H68Q56 14 59 7Q62 2 67 7Q69 11 63 11M33 14Q40 14 43 19L48 23L53 19Q56 14 63 14M48 4L53 9L48 14L43 9Z'/%3E%3C/g%3E%3C/svg%3E"); background-repeat:no-repeat; pointer-events:none; }
+.wax-heart { position:relative; transform-origin:50% 65%; }
+.scene-visible .wax-heart { animation:wax-stamp 1.1s cubic-bezier(.22,.75,.22,1) 1.1s both; }
+@keyframes wax-stamp { 0%{opacity:0;transform:translateY(-28px) scale(1.28) rotate(-5deg);filter:drop-shadow(0 24px 14px #541f2910)}30%{opacity:1}57%{transform:translateY(2px) scale(1.035,.96) rotate(-.5deg);filter:drop-shadow(0 2px 2px #541f2950)}76%{transform:translateY(-1px) scale(.995,1.015) rotate(.2deg);filter:drop-shadow(0 5px 4px #541f2935)}100%{opacity:1;transform:translateY(0) scale(1) rotate(0);filter:drop-shadow(0 5px 3px #541f2938)} }
+.motion-paused .hero .parallax-layer,.motion-paused .contact-flower-layer { transition:none; }
+@media(prefers-reduced-motion:reduce) { .hero .parallax-layer,.contact-flower-layer{transition:none}.scene-visible .wax-heart{opacity:1;transform:none} }
+/* =========================================================
+   FAMILY PHOTO VISIBILITY FIX
+   Load this file AFTER style.css.
+   It removes the reveal/clip/animation conflict on the photo.
+   ========================================================= */
+
+.family .photo-frame {
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+}
+
+/* Use a simple reveal on the frame itself. */
+.family .photo-frame.reveal {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(28px) scale(.98);
+  filter: blur(3px);
+  clip-path: none !important;
+  transition:
+    opacity 1s var(--ease-cinema, cubic-bezier(.19,1,.22,1)),
+    transform 1s var(--ease-cinema, cubic-bezier(.19,1,.22,1)),
+    filter 1s ease;
+}
+
+.family .photo-frame.reveal.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  filter: none;
+  clip-path: none !important;
+}
+
+/* Disable the old clip reveal only for this image card. */
+.family .photo-frame.reveal-clip,
+.family .photo-frame.reveal-clip.visible {
+  clip-path: none !important;
+}
+
+/* Keep the picture visible and let only --image-y control parallax. */
+.family .photo-frame img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate3d(0, var(--image-y, 0px), 0) scale(1.07);
+  transform-origin: center;
+  animation: none !important;
+  transition: transform .3s ease-out;
+  will-change: transform;
+}
+
+.family .photo-frame.visible img {
+  animation: none !important;
+}
+
+/* Fallback stays behind the real photo. */
+.family .photo-frame .photo-fallback {
+  z-index: 0;
+}
+
+/* Caption always stays on top and is never stagger-hidden. */
+.family .photo-frame figcaption {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+  pointer-events: none;
+}
+
+.family .photo-frame figcaption.stagger-item,
+.family .photo-frame .photo-fallback.stagger-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* When motion is paused/reduced, keep the photo in a stable state. */
+.motion-paused .family .photo-frame img {
+  transform: scale(1.07) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family .photo-frame,
+  .family .photo-frame.reveal,
+  .family .photo-frame.reveal.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+
+  .family .photo-frame img {
+    transform: scale(1.07) !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+.dress-code-genders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 360px;
+  margin: 32px auto;
+  align-items: start;
+}
+
+.dress-gender {
+  text-align: center;
+}
+
+.dress-icon-img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+.dress-gender p {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.dress-gender strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.dress-gender span {
+  display: block;
+  font-size: 14px;
+}
+
+@media (max-width: 350px) {
+  .dress-code-genders {
+    gap: 14px;
+  }
+
+  .dress-icon-img {
+    width: 86px;
+    height: 86px;
+  }
+}

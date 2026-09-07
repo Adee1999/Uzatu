@@ -102,7 +102,7 @@ test('form markup is accessible and all dates render from configuration',()=>{
 
 test('displayed dates and time follow the configured event timezone',()=>{
   const nodes=['day','month','year','weekday','time','numeric','compact','long'].map(date=>({dataset:{date},textContent:''}));
-  const context={CONFIG:{bride:'Әсем',eventType:'ҚЫЗ ҰЗАТУ ТОЙЫ',hosts:'Айтжан мен Күнсұлу',event:{date:'2026-09-20T23:30:00Z',timezone:'Asia/Bishkek',city:'Бішкек'},venue:{name:'ULUU TOO PREMIUM',address:'Бішкек қ., Ленин даңғылы, 185/1'}},document:{querySelectorAll:()=>nodes,title:''}};
+  const context={CONFIG:{bride:'Әсем',eventType:'ҚЫЗ ҰЗАТУ ТОЙЫ',hosts:'Айтжан & Күнсұлу',event:{date:'2026-09-20T23:30:00Z',timezone:'Asia/Bishkek',city:'Бішкек'},venue:{name:'GOLDEN HILLS BALLROOM',address:'Бішкек қ., Ленин даңғылы, 185/1'}},document:{querySelectorAll:()=>nodes,title:''}};
   vm.createContext(context);
   vm.runInContext(source.slice(source.indexOf('function initEventDetails('),source.indexOf('function initPaperScenes('))+'\ninitEventDetails();',context);
   const value=id=>nodes.find(node=>node.dataset.date===id).textContent;

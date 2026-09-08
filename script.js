@@ -1,15 +1,15 @@
 // EDIT WEDDING DETAILS HERE. Dates, names, venue and contact links use this one source.
 const CONFIG = {
-  bride: "Әсем",
+  bride: "Әсемнің",
   eventType: "ҚЫЗ ҰЗАТУ ТОЙЫ",
-  event: { date: "2026-10-13T17:00:00+06:00", timezone: "Asia/Bishkek", city: "Бішкек" },
+  event: { date: "2026-10-13T17:00:00+06:00", timezone: "Asia/Almaty", city: "Жетісай" },
   hosts: "Айтжан & Күнсұлу",
   venue: {
     name: "GOLDEN HILLS BALLROOM",
     address: "Бішкек қ., Ленин даңғылы, 185/1",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=ULUU+TOO+PREMIUM+Бишкек+Ленина+185%2F1"
+    mapUrl: "https://2gis.ru/geo/68.381110,40.908318"
   },
-  whatsapp: { rsvpPhone: "77000000000", organizerPhone: "77000000000" },
+  whatsapp: { rsvpPhone: "+77071681968", organizerPhone: "+77071681968" },
   musicPath: "assets/music.mp3",
   musicEnabled: true,
   musicFileAvailable: true, // Set true after adding music.mp3; otherwise a quiet original instrumental plays.

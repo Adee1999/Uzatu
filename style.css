@@ -731,3 +731,13 @@ body.page-visible { overflow:visible; }
 .motion-paused .timeline-ready .timeline-sticky { height:auto; }
 .motion-paused .timeline-ready .timeline-scene { inset:auto; aspect-ratio:360/800; }
 @media(prefers-reduced-motion:reduce) { .timeline-ready.wedding-timeline{height:auto;min-height:0}.timeline-ready .timeline-sticky{height:auto}.timeline-ready .timeline-scene{inset:auto;aspect-ratio:360/800} }
+
+.celebration h1[data-content="bride"] {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 700 !important;
+  text-shadow: .25px 0 currentColor, -.25px 0 currentColor;
+}
+
+h2[data-content="hosts"] {
+  color: #842b3b !important;
+}

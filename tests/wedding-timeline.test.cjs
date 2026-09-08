@@ -28,16 +28,16 @@ function fixture() {
   }
   const section = new Node(), sticky = new Node(), route = new Node();
   const progress = new Node(), heart = new Node(), arrival = new Node(), venue = new Node();
-  const events = [.15, .42, .70, .92].map(value => Object.assign(new Node(), { dataset:{ progress:String(value) } }));
-  const stops = [.15, .42, .70, .92].map(value => Object.assign(new Node(), { dataset:{ stop:String(value) } }));
+  const events = [.10, .30, .50, .72, .92].map(value => Object.assign(new Node(), { dataset:{ progress:String(value) } }));
+  const stops = [.10, .30, .50, .72, .92].map(value => Object.assign(new Node(), { dataset:{ stop:String(value) } }));
   const pointAt = distance => ({ x:180 + 105 * Math.sin(distance / 1000 * 4 * Math.PI), y:18 + distance / 1000 * 540 });
   route.getTotalLength = () => { lengthReads++; return 1000; };
   route.getPointAtLength = distance => {
     assert.ok(distance >= 0 && distance <= 1000, 'arc length must stay within route');
     return pointAt(distance);
   };
-  route.ownerSVGElement = { viewBox:{ baseVal:{ height:600 } } };
-  section.offsetHeight = 1440; sticky.offsetHeight = 800;
+  route.ownerSVGElement = { viewBox:{ baseVal:{ height:800 } } };
+  section.offsetHeight = 1760; sticky.offsetHeight = 800;
   section.getBoundingClientRect = () => { boundsReads++; return { top:1200 - context.window.scrollY }; };
   section.querySelector = () => sticky;
   section.querySelectorAll = selector => selector === '.timeline-event' ? events : stops;
@@ -60,7 +60,7 @@ function fixture() {
       time += 16; batch.forEach(callback => callback(time));
     }
   }
-  function scrollTo(value) { context.window.scrollY = 1200 + value * 640; listeners.get('scroll')(); flush(); }
+  function scrollTo(value) { context.window.scrollY = 1200 + value * 960; listeners.get('scroll')(); flush(); }
   flush();
   return { context, section, progress, heart, venue, events, stops, pointAt, flush, scrollTo,
     fire:name => listeners.get(name)(), stats:() => ({ boundsReads, lengthReads, pulses }) };
@@ -68,7 +68,7 @@ function fixture() {
 
 test('heart and drawn line use the same SVG arc length at every event and rewind', () => {
   const f = fixture();
-  for (const value of [0, .15, .42, .70, .92, 1, .42, 0]) {
+  for (const value of [0, .10, .30, .50, .72, .92, 1, .30, 0]) {
     f.scrollTo(value);
     const expected = f.pointAt(value * 1000);
     const coordinates = f.heart.attributes.transform.match(/translate\(([^ ]+) ([^)]+)\)/).slice(1).map(Number);
@@ -87,7 +87,7 @@ test('events activate in order; earlier events mute and finale leads to venue', 
   f.scrollTo(1);
   assert.ok(f.events.every(event => event.classes.has('is-reached')));
   assert.ok(f.venue.classes.has('venue-ready'));
-  assert.ok(f.stats().pulses >= 4);
+  assert.ok(f.stats().pulses >= 5);
   f.scrollTo(.1);
   assert.ok(!f.venue.classes.has('venue-ready'));
 });
@@ -97,8 +97,8 @@ test('geometry is cached during scrolling, markers use responsive SVG coordinate
   for (const value of [.1, .3, .7]) f.scrollTo(value);
   assert.equal(f.stats().boundsReads, before.boundsReads);
   assert.equal(f.stats().lengthReads, before.lengthReads);
-  assert.equal(f.stops[0].attributes.cx, f.pointAt(150).x);
-  assert.equal(f.events[0].values['--event-y'], `${f.pointAt(150).y / 600 * 100}%`);
+  assert.equal(f.stops[0].attributes.cx, f.pointAt(100).x);
+  assert.equal(f.events[0].values['--event-y'], `${f.pointAt(100).y / 800 * 100}%`);
   f.fire('resize'); f.flush();
   assert.equal(f.stats().boundsReads, before.boundsReads + 1);
 });
@@ -136,9 +136,11 @@ test('markup keeps identical paths, required times, configurable map and unique 
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const paths = [...html.matchAll(/id="timeline-(?:path|progress)" d="([^"]+)"/g)];
   assert.equal(paths.length, 2); assert.equal(paths[0][1], paths[1][1]);
-  for (const time of ['18:00', '18:30', '19:00']) assert.ok(html.includes(`datetime="${time}"`));
+  for (const time of ['18:00', '19:00', '21:00', '23:00', '23:30']) assert.ok(html.includes(`datetime="${time}"`));
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length);
-  assert.ok(html.includes('ULUU TOO')); assert.ok(html.includes('185/1'));
+  const timeline = html.slice(html.indexOf('<section class="wedding-timeline"'), html.indexOf('<section class="location'));
+  assert.equal((timeline.match(/data-progress=/g) || []).length, 5);
+  assert.ok(!/18:30|ҰЗАТУ РӘСІМІ|БАНКЕТ|Тәтті сәт|МЕРЕКЕЛІК ТОРТ/.test(timeline));
   assert.ok(script.includes("document.getElementById('map-link').href = CONFIG.venue.mapUrl"));
 });

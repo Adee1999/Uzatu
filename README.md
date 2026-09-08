@@ -33,9 +33,9 @@ if using a true transparent cutout later.
 
 ## Wedding day schedule
 
-The schedule in index.html uses a 100svh sticky scene inside a 180svh section. Edit the four
+The schedule in index.html uses a 100svh sticky scene (minimum 740px) inside a 220svh section. Edit the five
 events directly in the ordered list; data-progress places each event along the route.
-The final cake event has no invented fixed time. The inline SVG contains matching
+The final 23:30 event includes the italic Ақ жол label. The inline SVG contains matching
 base/progress paths: update both path definitions together when changing the curve.
 initWeddingTimeline() uses getTotalLength()/getPointAtLength() to position the heart,
 event markers and event labels. Progress rewinds with upward scrolling. Bounds and

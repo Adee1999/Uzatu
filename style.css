@@ -711,3 +711,23 @@ body.page-visible { overflow:visible; }
     height: 86px;
   }
 }
+/* Five-stage uzatu program; one shared SVG coordinate system for route and events. */
+.timeline-ready.wedding-timeline { height:220svh; min-height:calc(740px + 100svh); }
+.timeline-ready .timeline-sticky { height:max(100svh,740px); }
+.timeline-ready .timeline-heading { top:6%; }
+.timeline-ready .timeline-scene { inset:16% 18px 12%; }
+.timeline-event { width:36%; }
+.wedding-timeline .schedule-icon { width:32px; height:32px; margin-bottom:3px; }
+.wedding-timeline .schedule-time { font-size:clamp(28px,7.5vw,34px); line-height:1.08; }
+.wedding-timeline .schedule-title { font-size:clamp(9px,2.55vw,11px); line-height:1.45; letter-spacing:.015em; margin-top:5px; overflow-wrap:normal; }
+.wedding-timeline .schedule-finale { font:italic clamp(23px,6.3vw,28px)/1.1 var(--serif); margin:3px 0 0; }
+.wedding-timeline .event-farewell .schedule-title { margin-top:3px; }
+.timeline-ready .timeline-event { opacity:.46; }
+.timeline-ready .timeline-event.is-past { opacity:.60; }
+.timeline-ready .timeline-event.is-near:not(.is-active) { opacity:.72; }
+.timeline-ready .timeline-event.is-active { opacity:1; }
+@media(max-width:350px) { .timeline-ready .timeline-scene{left:12px;right:12px}.timeline-event{width:37%}.wedding-timeline .schedule-icon{width:29px;height:29px}.wedding-timeline .schedule-title{font-size:8.8px}.wedding-timeline .schedule-time{font-size:28px} }
+.motion-paused .timeline-ready.wedding-timeline { height:auto; min-height:0; }
+.motion-paused .timeline-ready .timeline-sticky { height:auto; }
+.motion-paused .timeline-ready .timeline-scene { inset:auto; aspect-ratio:360/800; }
+@media(prefers-reduced-motion:reduce) { .timeline-ready.wedding-timeline{height:auto;min-height:0}.timeline-ready .timeline-sticky{height:auto}.timeline-ready .timeline-scene{inset:auto;aspect-ratio:360/800} }

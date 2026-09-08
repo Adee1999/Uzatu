@@ -2,7 +2,11 @@
 const CONFIG = {
   bride: "Әсемнің",
   eventType: "ҚЫЗ ҰЗАТУ ТОЙЫ",
-  event: { date: "2026-10-13T18:00:00+06:00", timezone: "Asia/Almaty", city: "Жетісай" },
+  event: {
+  date: "2026-10-13T18:00:00+05:00",
+  timezone: "Asia/Almaty",
+  city: "Жетісай"
+},
   hosts: "Айтжан & Күнсұлу",
   venue: {
     name: "GOLDEN HILLS BALLROOM",
@@ -568,7 +572,7 @@ function initWeddingTimeline() {
     heart.setAttribute('transform', `translate(${point.x} ${point.y})`);
     progressPath.style.strokeDashoffset = String(pathLength * (1 - progress));
     let active = -1;
-    events.forEach((event, index) => { if (progress >= event.progress - .035) active = index; });
+    events.forEach((event, index) => { if (progress >= event.progress) active = index; });
     events.forEach((event, index) => {
       event.element.classList.toggle('is-reached', index <= active);
       event.element.classList.toggle('is-active', index === active);

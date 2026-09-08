@@ -136,7 +136,7 @@ test('markup keeps identical paths, required times, configurable map and unique 
   const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const paths = [...html.matchAll(/id="timeline-(?:path|progress)" d="([^"]+)"/g)];
   assert.equal(paths.length, 2); assert.equal(paths[0][1], paths[1][1]);
-  for (const time of ['17:00', '17:30', '18:00']) assert.ok(html.includes(`datetime="${time}"`));
+  for (const time of ['18:00', '18:30', '19:00']) assert.ok(html.includes(`datetime="${time}"`));
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length);
   assert.ok(html.includes('ULUU TOO')); assert.ok(html.includes('185/1'));

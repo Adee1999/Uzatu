@@ -3,7 +3,7 @@ const CONFIG = {
   bride: "Әсемнің",
   eventType: "ҚЫЗ ҰЗАТУ ТОЙЫ",
   event: {
-  date: "2026-10-13T18:00:00+05:00",
+  date: "2026-10-13T19:00:00+05:00",
   timezone: "Asia/Almaty",
   city: "Жетісай"
 },
@@ -11,7 +11,7 @@ const CONFIG = {
   venue: {
     name: "GOLDEN HILLS BALLROOM",
     address: "Жетісай ауданы, Асықата кенті",
-    mapUrl: "https://2gis.ru/geo/68.381110,40.908318"
+    mapUrl: "https://2gis.ru/geo/68.374842,40.907577"
   },
   whatsapp: { rsvpPhone: "+77071681968", organizerPhone: "+77071681968" },
   musicPath: "assets/music.mp3",
